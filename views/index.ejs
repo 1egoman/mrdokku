@@ -9,17 +9,22 @@
 
 
 
+        <% dokku.getAllRepos().forEach(function(repo) {%>
         <li class="list-group-item">
-          <!-- delete -->
-          <button class="btn btn-danger pull-right">delete</button>
+          <!-- actions for each app -->
+          <div class="btn-group pull-right">
+            <button class="btn btn-info">restart</button>
+            <button class="btn btn-danger">delete</button>
+          </div>
 
           <!-- application information -->
           <h3>
-            App Name
+            <%= repo %>
             <small>web,procfileentry1</small>
           </h3>
 
         </li>
+        <% }); %>
 
 
 

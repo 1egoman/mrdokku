@@ -12,7 +12,8 @@ app = require("express")()
 chalk = require "chalk"
 path = require "path"
 bodyParser = require "body-parser"
-
+shell = require "shelljs"
+dokku = require "./dokku"
 
 exports.main = ->
 
@@ -24,7 +25,9 @@ exports.main = ->
 
   # some sample routes
   app.get "/", (req, res) ->
-      res.render "index"
+      res.render "index",
+        shell: shell
+        dokku: dokku
   
 
   # listen for requests
