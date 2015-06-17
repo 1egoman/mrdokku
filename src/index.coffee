@@ -6,7 +6,7 @@
  * Licensed under the MIT license.
 ###
 
-'use strict';
+'use strict'
 
 app = require("express")()
 chalk = require "chalk"
@@ -16,9 +16,6 @@ bodyParser = require "body-parser"
 
 exports.main = ->
 
-  # connect to database
-  
-
   # set ejs as view engine
   app.set "view engine", "ejs"
 
@@ -26,7 +23,6 @@ exports.main = ->
   exports.middleware app
 
   # some sample routes
-  
   app.get "/", (req, res) ->
       res.render "index"
   
@@ -41,7 +37,6 @@ exports.middleware = (app) ->
   
   # json body parser
   app.use bodyParser.json()
-  
 
   
   # include sass middleware to auto-compile sass stylesheets
@@ -49,7 +44,7 @@ exports.middleware = (app) ->
   app.use node_sass
     src: path.join(__dirname, "../public"),
     dest: path.join(__dirname, "../public"),
-    debug: true
+    # debug: true
   
 
   # serve static assets
